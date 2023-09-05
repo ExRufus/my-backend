@@ -11,11 +11,12 @@ app.use(express.json());
 app.use(express.urlencoded({
   extended: false
 }));
-// const corsOptions = {
-//   origin: 'https://fsw-todo-list-app.vercel.app',
-// };
 
-app.use(cors());
+const corsOptions = {
+  origin: '*',
+};
+
+app.use(cors(corsOptions));
 
 // router
 app.use(router);

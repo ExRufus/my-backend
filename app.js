@@ -6,17 +6,21 @@ const PORT = process.env.PORT;
 const cors = require('cors')
 const router = require('./src/routes/router');
 
+
+const corsOptions = {
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+};
+app.use(cors(corsOptions));
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({
   extended: false
 }));
 
-const corsOptions = {
-  origin: '*',
-};
 
-app.use(cors(corsOptions));
 
 // router
 app.use(router);

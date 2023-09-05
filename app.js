@@ -9,8 +9,6 @@ const router = require('./src/routes/router');
 
 const corsOptions = {
   origin: '*',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: 'Content-Type,Authorization',
 };
 app.use(cors(corsOptions));
 

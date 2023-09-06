@@ -1,6 +1,6 @@
 const { User, Todos } = require('../../models')
 const autoBind = require('auto-bind');
-const { validateUserPayload } = require('../validators/users/index');
+const { validateLoginUserPayload, validateRegisterUserPayload } = require('../validators/users/index');
 const ClientError = require('../exceptions/ClientError');
 const AuthenticationError = require('../exceptions/AuthenticationError')
 const NotFoundError = require('../exceptions/NotFoundError');
@@ -13,7 +13,7 @@ class UsersController {
 
   async postUserHandler(req, res) {
     try {
-      validateUserPayload(req.body);
+      validateRegisterUserPayload(req.body);
       const createdUser = await User.create(req.body);
   
       const userCode = createdUser.code;
@@ -86,6 +86,7 @@ class UsersController {
 
   async loginController(req, res) {
     const { code } = req.body;
+    validateLoginUserPayload(req.body)
     try {
       const user = await User.findOne({
         where: {

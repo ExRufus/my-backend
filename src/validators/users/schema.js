@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-const UserPayloadSchema = Joi.object({
+const registerUserPayloadSchema = Joi.object({
   username: Joi.string()
     .pattern(/^[a-zA-Z\s]+$/)
     .required(),
@@ -15,4 +15,11 @@ const UserPayloadSchema = Joi.object({
     .required(),
 });
 
-module.exports = { UserPayloadSchema };
+const loginUserPayloadSchema = Joi.object({
+  code: Joi.string()
+    .pattern(/^[0-9]{4}$/)
+    .required(),
+});
+
+
+module.exports = { registerUserPayloadSchema, loginUserPayloadSchema }

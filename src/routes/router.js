@@ -8,6 +8,7 @@ const todosController = new TodosController();
 
 // user
 router.post('/register', usersController.postUserHandler);
+router.post('/register', usersController.postUserHandler);
 router.post('/login', usersController.loginController)
 router.get('/user', usersController.getUserHandler)
 router.get('/user/:id', usersController.getUserByIdHandler)

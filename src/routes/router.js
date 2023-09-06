@@ -13,6 +13,7 @@ router.get('/user', usersController.getUserHandler)
 router.get('/user/:id', usersController.getUserByIdHandler)
 router.get('/is-verify', authorization, usersController.verifyController)
 router.post('/dashboard', authorization, usersController.dashboardController)
+router.get('/dashboard', authorization, usersController.dashboardController)
 
 // todos
 router.post('/todos', todosController.postTodosHandler);

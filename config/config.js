@@ -1,10 +1,7 @@
 module.exports = {
   development: {
-    username: "exrufus",
-    password: "exrufus",
-    database: "mocktest-dev",
-    host: "127.0.0.1",
-    dialect: "postgres"
+    url: process.env.DATABASE_URL,
+    dialect: 'postgres'
   },
   test: {
     url: process.env.DATABASE_URL,

@@ -8,7 +8,11 @@ module.exports = {
     dialect: 'postgres'
   },
   production: {
-    url: process.env.DATABASE_URL,
+    username: 'postgres', 
+    password: 'AnakCompsie',
+    host: 'db.ffcjctqhmuwkqzylelku.supabase.co',
+    port: 6543,
+    database: 'postgres',
     dialect: 'postgres'
   }
 };
